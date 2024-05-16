@@ -90,8 +90,23 @@ export function Portfolio() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  //download cv
+  const downloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/Eduardo_Cardoso_Martinez.pdf';
+    link.download = 'Eduardo_Cardoso_Martinez.pdf';
+    link.click();
+  };
+
   return (
     <div className="flex flex-col min-h-screen dark:bg-gray-900">
+      <nav className="fixed top-0 w-full flex items-center justify-between px-4 py-4 md:py-6 md:px-6 border-b bg-white dark:bg-gray-900 z-50">
+        <Link href="/" className="text-2xl font-bold tracking-tighter">
+          ECM
+        </Link>
+        <Button onClick={downloadCV}>Descargar CV</Button>
+      </nav>
       <main className="flex-1">
         <section
           className="flex flex-col items-center justify-center gap-4 px-4 py-12 md:py-24 lg:py-32 xl:py-48"
